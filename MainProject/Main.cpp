@@ -63,10 +63,9 @@ int main()
 	std::cout<<std::endl;
 	v1.show();
 	
-	std::cout<<std::endl;//
-	
-	v2 = v - v1;
 	std::cout<<std::endl;
+	
+	v2 = v + v1;
 	v2.show();
 	return 0;
 }

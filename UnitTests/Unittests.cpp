@@ -75,7 +75,7 @@ namespace UnitTests
 			Assert::AreEqual(v2.x(), 2);
 			Assert::AreEqual(v2.y(), 1);
 			Assert::AreEqual(v2.z(), 2);
-			Logger::WriteMessage("Test6");
+			//Logger::WriteMessage("Test6");
 		}
 
 		TEST_METHOD(TestMethod7)

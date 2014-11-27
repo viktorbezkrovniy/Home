@@ -72,6 +72,6 @@ Vector<Type> operator + (const Vector<Type>& v1,const Vector<Type>& v2)
 	Vector<Type> res;
 	for(int i = 0; i < 3; i++)
 			res(i) = v1(i) + v2(i);
-	return v1;
+	return res;
 }
 template Vector<int> operator+(const Vector<int>& v1,const Vector<int>& v2);
