@@ -31,15 +31,6 @@ Type Vector<Type>::scalar(const Vector<Type>& v)
 };
 template class Vector<int>;
 
-template<class Type>
-void Vector<Type>::show()
-{
-	for( int i = 0; i < 3; i++) 
-	{
-		std::cout<<mE[i]<<std::endl;
-	}
-}
-
 template <class Type>
 Type& Vector<Type>::operator () (int x)
 {

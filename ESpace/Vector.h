@@ -35,6 +35,4 @@ class Vector
 		friend Vector<T> operator - (const Vector<T>& v,const Vector<T>& v0);
 		template<class T>
 		friend Vector<T> operator + (const Vector<T>& v1,const Vector<T>& v2);
-
-		void show();
 };

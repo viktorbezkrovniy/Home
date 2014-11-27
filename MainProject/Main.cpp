@@ -59,13 +59,14 @@ int main()
 
 	Vector<int> v(3,2,3);
 	Vector<int> v1(1,1,1),v2;
-	v.show();
+
 	std::cout<<std::endl;
-	v1.show();
-	
-	std::cout<<std::endl;
-	
+
 	v2 = v + v1;
-	v2.show();
+	for(int l = 0; l < 3; l++) 
+	{
+		std::cout<<v2(l)<<std::endl;
+	}
+
 	return 0;
 }

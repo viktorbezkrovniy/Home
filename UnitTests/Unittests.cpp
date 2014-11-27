@@ -81,7 +81,8 @@ namespace UnitTests
 		TEST_METHOD(TestMethod7)
 		{
 			Vector<int> v(3,2,3);
-			Assert::AreEqual(v(0), 3);
+			v(1) = 3;
+			Assert::AreEqual(v(1), 3);
 		}
 
 		TEST_METHOD(TestMethod8)
