@@ -45,11 +45,11 @@ Matrix<Type>& Matrix<Type>::operator=(const Matrix& Mat)
 {
 	if (&Mat != this)
 	{
-		delete[] DATA;
+		delete[] DATA; 
 		size = Mat.size;
 		DATA = new Type[size * size];
 		for(int i = 0; i < size * size; i++)
-			DATA[i] = Mat.DATA[i];
+			DATA[i] = Mat.DATA[i];   //*copy function for arrays
 	}
 	return *this;
 }

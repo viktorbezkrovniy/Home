@@ -11,7 +11,7 @@ namespace UnitTests
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(constructor_vecotr_e)
 		{
 			Vector<int> v;
 			Assert::AreEqual(0, v.x());
@@ -19,7 +19,7 @@ namespace UnitTests
 			Assert::AreEqual(0, v.z());
 		}
 
-		TEST_METHOD(TestMethod2)
+		TEST_METHOD(constructor_vecotr_p)
 		{
 			Vector<int> v(1,2,3);
 			Assert::AreEqual(1, v.x());
@@ -27,7 +27,7 @@ namespace UnitTests
 			Assert::AreEqual(3, v.z());
 		}
 
-		TEST_METHOD(TestMethod3)
+		TEST_METHOD(constructor_matrix_e)
 		{
 			Matrix<int> v;
 			for(int i = 0; i < v.getSize(); i++)
@@ -35,7 +35,7 @@ namespace UnitTests
 					Assert::AreEqual(0, v(i,j));
 
 		}
-		TEST_METHOD(TestMethod4)
+		TEST_METHOD(matrix_multiply_vector)
 		{
 			Matrix<int> M(3);
 			M(0,1) = 1;
@@ -48,15 +48,14 @@ namespace UnitTests
 			M(2,2) = 8;
 
 			Vector<int> v(3,2,3);
-			Vector<int> v1;
-			v1 = M * v;
+			Vector<int> v1 = M * v;
 			Assert::AreEqual(8, v1.x());
 			Assert::AreEqual(32, v1.y());
 			Assert::AreEqual(56, v1.z());
 				
 		}
 
-		TEST_METHOD(TestMethod5)
+		TEST_METHOD(vecotr_add)
 		{
 			Vector<int> v(1,2,3);
 			Vector<int> v1(1,2,3);
@@ -67,7 +66,7 @@ namespace UnitTests
 			Assert::AreEqual(v2.z(), 6);
 		}
 		
-		TEST_METHOD(TestMethod6)
+		TEST_METHOD(vecotr_subtract)
 		{
 			Vector<int> v(3,2,3);
 			Vector<int> v1(1,1,1), v2;
@@ -78,19 +77,19 @@ namespace UnitTests
 			//Logger::WriteMessage("Test6");
 		}
 
-		TEST_METHOD(TestMethod7)
+		TEST_METHOD(vector_appropriation)
 		{
 			Vector<int> v(3,2,3);
 			v(1) = 3;
 			Assert::AreEqual(v(1), 3);
 		}
 
-		TEST_METHOD(TestMethod8)
+		TEST_METHOD(vector_equal)
 		{
-			Vector<int> v(3,2,3),v1;
+			Vector<int> v(3,2,3), v1;
 			v1 = v;
 			Assert::AreEqual(v.x(), 3);
-			Assert::IsTrue(1);
+			//Assert::IsTrue(1);
 		
 		}
 	};
