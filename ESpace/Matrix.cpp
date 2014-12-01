@@ -33,8 +33,9 @@ Matrix<Type>::Matrix(const Matrix& Mat)
 	, DATA(0)
 { 
 	DATA = new Type[size * size];
-	for(int i = 0; i < size * size; i++)
-		*(DATA + i) = *(Mat.DATA + i);
+	/*for(int i = 0; i < size * size; i++)
+		*(DATA + i) = *(Mat.DATA + i);*/
+	memcpy(DATA, Mat.DATA, size * size * sizeof(Type));
 }
 template class Matrix<int>;
 template class Matrix<float>;
@@ -48,8 +49,9 @@ Matrix<Type>& Matrix<Type>::operator=(const Matrix& Mat)
 		delete[] DATA; 
 		size = Mat.size;
 		DATA = new Type[size * size];
-		for(int i = 0; i < size * size; i++)
-			DATA[i] = Mat.DATA[i];   //*copy function for arrays
+		memcpy(DATA, Mat.DATA, size * size * sizeof(Type));
+		//for(int i = 0; i < size * size; i++)
+		//	DATA[i] = Mat.DATA[i];   //*copy function for arrays
 	}
 	return *this;
 }
