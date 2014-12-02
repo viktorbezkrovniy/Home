@@ -5,8 +5,7 @@ template<class Type>
 Vector<Type>::Vector(const Vector& V)
 {
 	for(int i = 0; i < 3; i++)
-		mE[i] = V.mE[i];
-		
+		mE[i] = V.mE[i];		
 }
 template class Vector<int>;
 template class Vector<float>;
@@ -15,8 +14,11 @@ template class Vector<double>;
 template <class Type>
 Vector<Type>& Vector<Type>::operator=(const Vector& V)
 {
-	for(int i = 0; i < 3; i++)
-		mE[i] = V.mE[i];
+	if(&V != this)
+	{
+		for(int i = 0; i < 3; i++)
+			mE[i] = V.mE[i];
+	}
 	return *this;
 }
 template class Vector<int>;
