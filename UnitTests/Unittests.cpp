@@ -11,7 +11,7 @@ namespace UnitTests
 	{
 	public:
 		
-		TEST_METHOD(constructor_vecotr_e)
+		TEST_METHOD(constructor_vecotr)
 		{
 			Vector<int> v;
 			Assert::AreEqual(0, v.x());
@@ -36,17 +36,17 @@ namespace UnitTests
 			Assert::AreEqual(3, v1.z());
 		}
 
-		TEST_METHOD(constructor_matrix_e)
+		TEST_METHOD(constructor_matrix)
 		{
 			Matrix<int> v;
-			for(int i = 0; i < v.getSize(); i++)
-				for(int j = 0; j < v.getSize(); j++)
+			for(int i = 0; i < 3; i++)
+				for(int j = 0; j < 3; j++)
 					Assert::AreEqual(0, v(i,j));
 
 		}
 		TEST_METHOD(matrix_multiply_vector)
 		{
-			Matrix<int> M(3);
+			Matrix<int> M;
 			M(0,1) = 1;
 			M(0,2) = 2;
 			M(1,0) = 3;
@@ -109,7 +109,7 @@ namespace UnitTests
 
 		TEST_METHOD(matrix_multiply_matrix)
 		{
-			Matrix<int> M(3);
+			Matrix<int> M;
 			M(0,1) = 1;
 			M(0,2) = 2;
 			M(1,0) = 3;
@@ -119,7 +119,7 @@ namespace UnitTests
 			M(2,1) = 7;
 			M(2,2) = 8;
 
-			Matrix<int> M2(3);
+			Matrix<int> M2;
 			M2(0,1) = 1;
 			M2(0,2) = 2;
 			M2(1,0) = 3;
@@ -143,7 +143,7 @@ namespace UnitTests
 
 		TEST_METHOD(matrix_add_matrix)
 		{
-			Matrix<int> M(3);
+			Matrix<int> M;
 			M(0,1) = 1;
 			M(0,2) = 2;
 			M(1,0) = 3;
@@ -153,7 +153,7 @@ namespace UnitTests
 			M(2,1) = 7;
 			M(2,2) = 8;
 
-			Matrix<int> M2(3);
+			Matrix<int> M2;
 			M2(0,1) = 1;
 			M2(0,2) = 2;
 			M2(1,0) = 3;
@@ -177,7 +177,7 @@ namespace UnitTests
 
 		TEST_METHOD(matrix_subtract_matrix)
 		{
-			Matrix<int> M(3);
+			Matrix<int> M;
 			M(0,0) = 1;
 			M(0,1) = 2;
 			M(0,2) = 3;
@@ -188,7 +188,7 @@ namespace UnitTests
 			M(2,1) = 8;
 			M(2,2) = 9;
 
-			Matrix<int> M2(3);
+			Matrix<int> M2;
 			M2(0,1) = 1;
 			M2(0,2) = 2;
 			M2(1,0) = 3;
@@ -212,7 +212,7 @@ namespace UnitTests
 
 		TEST_METHOD(matrix_multiply_equal)
 		{
-			Matrix<int> M(3);
+			Matrix<int> M;
 			M(0,1) = 1;
 			M(0,2) = 2;
 			M(1,0) = 3;
@@ -222,7 +222,7 @@ namespace UnitTests
 			M(2,1) = 7;
 			M(2,2) = 8;
 
-			Matrix<int> M2(3);
+			Matrix<int> M2;
 			M2(0,1) = 1;
 			M2(0,2) = 2;
 			M2(1,0) = 3;
@@ -247,7 +247,7 @@ namespace UnitTests
 
 		TEST_METHOD(matrix_equal)
 		{
-			Matrix<int> M(3);
+			Matrix<int> M;
 			M(0,1) = 1;
 			M(0,2) = 2;
 			M(1,0) = 3;
@@ -272,7 +272,7 @@ namespace UnitTests
 
 		TEST_METHOD(matrix_constructor_copy)
 		{
-			Matrix<int> M(3);
+			Matrix<int> M;
 			M(0,1) = 1;
 			M(0,2) = 2;
 			M(1,0) = 3;
@@ -293,12 +293,6 @@ namespace UnitTests
 			Assert::AreEqual(6, M(2,0));
 			Assert::AreEqual(7, M(2,1));
 			Assert::AreEqual(8, M(2,2));
-		}
-
-		TEST_METHOD(matrix_getSize)
-		{
-			Matrix<int> M;
-			Assert::AreEqual(3, M.getSize());
 		}
 	};
 }

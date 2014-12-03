@@ -6,23 +6,19 @@ template<class Type>
 class Matrix
 {
 private:
-	int size; 
 	Type* DATA;
 public:
-	Matrix(int s = 3);
+	Matrix();
 		
 	Matrix(const Matrix&);
 		
 	~Matrix();
 	
-	int getSize() const { return size; }
-
 	Type& operator () (int x, int y);
 	const Type& operator () (int x, int y) const;
 	Matrix operator + (const Matrix& m) const;
 	Matrix operator - (const Matrix& m) const;
 	Matrix& operator = (const Matrix& m);
-//	Matrix operator * (const Matrix& m) const;
 	Matrix& operator*=(const Matrix& m);
 	
 	template<class T>
