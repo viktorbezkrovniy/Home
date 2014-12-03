@@ -5,7 +5,7 @@
 
 int main()
 {
-	Matrix<int> M(3);
+	/*Matrix<int> M(3);
 	M(0,1) = 1;
 	M(0,2) = 2;
 	M(1,0) = 3;
@@ -26,9 +26,9 @@ int main()
 	std::cout<<std::endl;
 	
 	Matrix<int> M1 = M;
-	//M1(0,1) = 2;
-	//M1(1,0) = 1;
-	//M1(1,1) = 3;
+	M1(0,1) = 2;
+	M1(1,0) = 1;
+	M1(1,1) = 3;
 
 	for( int i = 0; i < M1.getSize(); i++) 
 	{
@@ -39,7 +39,7 @@ int main()
 		std::cout<<std::endl;
 	}
 
-	/*std::cout<<std::endl;
+	std::cout<<std::endl;
 	Matrix<int> M3;
 	
 	M3 = M + M1;
@@ -54,19 +54,19 @@ int main()
 	}
 
 	std::cout<<std::endl;
-
+	*/
 
 
 	Vector<int> v(3,2,3);
-	Vector<int> v1(1,1,1),v2;
+	Vector<int> v1(v);
 
-	std::cout<<v.scalar(v1)<<std::endl;
+	//std::cout<<v.scalar(v1)<<std::endl;
 
-	v2 = v + v1;
+	//v2 = v + v1;
 	for(int l = 0; l < 3; l++) 
 	{
-		std::cout<<v2(l)<<std::endl;
-	}*/
+		std::cout<<v(l)<<std::endl;
+	}
 
 	return 0;
 }

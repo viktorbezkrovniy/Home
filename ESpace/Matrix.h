@@ -19,11 +19,12 @@ public:
 
 	Type& operator () (int x, int y);
 	const Type& operator () (int x, int y) const;
-	Matrix operator + (const Matrix&) const;
+	Matrix operator + (const Matrix& m) const;
 	Matrix operator - (const Matrix& m) const;
-	Matrix& operator = (const Matrix&);
-//	Matrix operator * (const Matrix&) const;
-	Matrix& operator*=(const Matrix&);
+	Matrix& operator = (const Matrix& m);
+//	Matrix operator * (const Matrix& m) const;
+	Matrix& operator*=(const Matrix& m);
+	
 	template<class T>
 	friend Vector<T> operator * (const Matrix<T>& m, const Vector<T>& v);
 	template<class T>

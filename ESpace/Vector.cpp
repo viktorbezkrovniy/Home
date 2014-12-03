@@ -4,8 +4,9 @@
 template<class Type>
 Vector<Type>::Vector(const Vector& V)
 {
-	for(int i = 0; i < 3; i++)
-		mE[i] = V.mE[i];		
+	/*for(int i = 0; i < 3; i++)
+		mE[i] = V.mE[i];	*/	
+	memcpy(mE, V.mE, 3 * sizeof(Type));
 }
 template class Vector<int>;
 template class Vector<float>;

@@ -27,8 +27,8 @@ class Vector
 		Type& y() {return mE[1];}
 		Type& z() {return mE[2];}
 		
-		Type scalar(const Vector& v1); 
-		Vector& operator = (const Vector&);
+		Type scalar(const Vector& v); 
+		Vector& operator = (const Vector& v);
 		Type& operator () (int x);
 		const Type& operator () (int x) const;
 		template<class T>
