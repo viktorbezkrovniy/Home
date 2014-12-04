@@ -42,13 +42,13 @@ int main()
 	std::cout<<std::endl;
 	Matrix<int> M3;
 	
-	M3 = M + M1;
+	M1 += M;
 
 	for( int i = 0; i < 3; i++) 
 	{
 		for(int l = 0; l < 3; l++) 
 		{
-			std::cout<<M3(i,l)<<" ";
+			std::cout<<M1(i,l)<<" ";
 		}
 		std::cout<<std::endl;
 	}
@@ -57,16 +57,17 @@ int main()
 	
 
 
-	Vector<int> v(3,2,3);
-	Vector<int> v1(v);
+	//Vector<int> v(3,2,3);
+	//Vector<int> v1;
+	//v1 += v;
 
-	//std::cout<<v.scalar(v1)<<std::endl;
+	////std::cout<<v.scalar(v1)<<std::endl;
 
-	//v2 = v + v1;
-	for(int l = 0; l < 3; l++) 
-	{
-		std::cout<<v(l)<<std::endl;
-	}
+	////v2 = v + v1;
+	//for(int l = 0; l < 3; l++) 
+	//{
+	//	std::cout<<v(l)<<std::endl;
+	//}
 
 	return 0;
 }

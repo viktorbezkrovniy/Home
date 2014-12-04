@@ -6,7 +6,7 @@ template<class Type>
 class Matrix
 {
 private:
-	Type* DATA;
+	Type* mData;
 public:
 	Matrix();
 		
@@ -19,7 +19,9 @@ public:
 	Matrix operator + (const Matrix& m) const;
 	Matrix operator - (const Matrix& m) const;
 	Matrix& operator = (const Matrix& m);
-	Matrix& operator*=(const Matrix& m);
+	Matrix& operator *= (const Matrix& m);
+	Matrix& operator += (const Matrix& m);
+	Matrix& operator -= (const Matrix& m);
 	
 	template<class T>
 	friend Vector<T> operator * (const Matrix<T>& m, const Vector<T>& v);

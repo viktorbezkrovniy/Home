@@ -31,10 +31,12 @@ class Vector
 		
 		Type scalar(const Vector& v); 
 		Vector& operator = (const Vector& v);
+		Vector& operator += (const Vector& v);
+		Vector& operator -= (const Vector& v);
 		Type& operator () (int x);
 		const Type& operator () (int x) const;
 		template<class T>
-		friend Vector<T> operator - (const Vector<T>& v, const Vector<T>& v0);
+		friend Vector<T> operator - (const Vector<T>& v1, const Vector<T>& v2);
 		template<class T>
 		friend Vector<T> operator + (const Vector<T>& v1, const Vector<T>& v2);
 };

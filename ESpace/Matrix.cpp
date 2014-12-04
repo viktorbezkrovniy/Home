@@ -4,43 +4,43 @@
 
 template<class Type>
 Matrix<Type>::Matrix()
-	: DATA(0)
+	: mData(0)
 {
-	DATA = new Type[9];
-	memset(DATA, 0, 9 * sizeof(Type));
+	mData = new Type[9];
+	memset(mData, 0, 9 * sizeof(Type));
 };
 
 template<class Type>
 Matrix<Type>::~Matrix()
 { 
-	delete [] DATA; 
+	delete [] mData; 
 }
 
 template<class Type>
 Matrix<Type>::Matrix(const Matrix& Mat)
-	: DATA(0)
+	: mData(0)
 { 
-	DATA = new Type[9];
-	memcpy(DATA, Mat.DATA, 9 * sizeof(Type));
+	mData = new Type[9];
+	memcpy(mData, Mat.mData, 9 * sizeof(Type));
 }
 
 template <class Type>
-Matrix<Type>& Matrix<Type>::operator=(const Matrix& Mat)
+Matrix<Type>& Matrix<Type>::operator = (const Matrix& Mat)
 {
 	if (&Mat != this)
 	{
-		delete[] DATA; 
-		DATA = new Type[9];
-		memcpy(DATA, Mat.DATA, 9 * sizeof(Type));
+		delete[] mData; 
+		mData = new Type[9];
+		memcpy(mData, Mat.mData, 9 * sizeof(Type));
 	}
 	return *this;
 }
 
 template <class Type>
-Matrix<Type> Matrix<Type>::operator+(const Matrix& m) const
+Matrix<Type> Matrix<Type>::operator + (const Matrix& m) const
 {
 	Matrix<Type> c;
-	for( int i = 0; i < 3; i++) 
+	for(int i = 0; i < 3; i++) 
 	{
 		for(int l = 0; l < 3; l++) 
 		{
@@ -52,7 +52,7 @@ Matrix<Type> Matrix<Type>::operator+(const Matrix& m) const
 
 
 template <class Type>
-Matrix<Type> Matrix<Type>::operator-(const Matrix& m) const
+Matrix<Type> Matrix<Type>::operator - (const Matrix& m) const
 {
 	Matrix<Type> c;
 	for( int i = 0; i < 3; i++) 
@@ -73,11 +73,28 @@ Matrix<Type>& Matrix<Type>::operator *= (const Matrix& m)
 }
 
 template <class Type>
+Matrix<Type>& Matrix<Type>::operator += (const Matrix& m)
+{
+	*this = *this + m; 
+	return *this;
+}
+
+template <class Type>
+Matrix<Type>& Matrix<Type>::operator -= (const Matrix& m)
+{
+	*this = *this - m; 
+	return *this;
+}
+
+template <class Type>
 Type& Matrix<Type>::operator () (int y, int x)
 {
 	assert(x >= 0 && x < 3);
 	assert(y >= 0 && y < 3);
-	return DATA[y * 3 + x];		
+	if ( (x >= 0 && x < 3) && (y >= 0 && y < 3) )
+		return mData[y * 3 + x];
+	static Type val = 0;
+	return val;	
 }
 
 template <class Type>
@@ -85,7 +102,10 @@ const Type& Matrix<Type>::operator () (int y, int x) const
 {
 	assert(x >= 0 && x < 3);
 	assert(y >= 0 && y < 3);
-	return DATA[y * 3 + x];		
+	if ( (x >= 0 && x < 3) && (y >= 0 && y < 3) )
+			return mData[y * 3 + x];
+	static Type val = 0;
+	return val;
 }
 
 template <class Type>
