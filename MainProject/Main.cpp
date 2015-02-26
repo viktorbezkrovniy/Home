@@ -2,10 +2,37 @@
 #include<iostream>
 #include <ESpace/Matrix.h>
 #include <ESpace/Vector.h>
+#include <boost/shared_ptr.hpp>
+#include <boost/regex.hpp>
 
-int main()
+
+struct Hello
 {
-	Matrix<int> M;
+	Hello()
+	{
+		std::cout << "Hello constructor\n";
+	}
+
+	~Hello()
+	{
+		std::cout << "Hello destructor\n";
+		//std::cin.get();
+	}
+};
+
+int main(int argc, char**argv)
+{
+	
+	boost::regex regex("^(Hello|Bye) Boost$");
+	boost::cmatch helloMatches;
+	boost::regex_search("Hello boost", helloMatches, regex);
+	std::cout << "The world between () is: "  << helloMatches[1] << std::endl;
+
+	boost::shared_ptr<Hello> sharedHello(new Hello);
+
+
+
+	/*Matrix<int> M;
 	M(0,1) = 1;
 	M(0,2) = 2;
 	M(1,0) = 3;
@@ -53,7 +80,7 @@ int main()
 		std::cout<<std::endl;
 	}
 
-	std::cout<<std::endl;
+	std::cout<<std::endl;*/
 	
 
 
