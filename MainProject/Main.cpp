@@ -1,9 +1,10 @@
-#include<stdio.h>
+﻿#include<stdio.h>
 #include<iostream>
 #include <ESpace/Matrix.h>
 #include <ESpace/Vector.h>
 #include <boost/shared_ptr.hpp>
 #include <boost/regex.hpp>
+#include <boost\thread.hpp>
 
 
 struct Hello
@@ -15,7 +16,7 @@ struct Hello
 
 	~Hello()
 	{
-		std::cout << "Hello destructor\n";
+		std::cout << "Hello destructor\nS";
 		//std::cin.get();
 	}
 };
@@ -29,7 +30,7 @@ int main(int argc, char**argv)
 	std::cout << "The world between () is: "  << helloMatches[1] << std::endl;
 
 	boost::shared_ptr<Hello> sharedHello(new Hello);
-
+	std::cout<<boost::thread::hardware_concurrency(); //оптимальное число потоков системи 
 
 
 	/*Matrix<int> M;
