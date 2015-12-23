@@ -1,6 +1,7 @@
 #include "Vector.h"
 #include <cassert>
 //test git commit
+//2
 template<class Type>
 Vector<Type>::Vector(const Vector& V)
 {
